@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ["python311", "gcc"]
-
-[phases.install]
-cmds = ["pip install -r requirements.txt", "python download_nltk_data.py"]
-
-[start]
-cmd = "gunicorn app:app" 
