@@ -1,14 +1,9 @@
-[phases.setup]
-nixPkgs = [
-  "python310.withPackages (ps: with ps; [ pip setuptools wheel ])"
-]
-
 [phases.install]
 cmds = [
+  "python3 -m ensurepip --upgrade",
   "pip install -r requirements.txt",
   "python download_nltk_data.py"
 ]
 
 [start]
 cmd = "gunicorn app:app"
-
