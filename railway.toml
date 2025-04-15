@@ -1,0 +1,10 @@
+[build]
+builder = "nixpacks"
+buildCommand = "pip install -r requirements.txt && python download_nltk_data.py"
+
+[deploy]
+startCommand = "gunicorn app:app"
+healthcheckPath = "/api/test"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10 
